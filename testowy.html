@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roll a dice</title>
+</head>
+
+<style>
+    .result-checkboxContainer
+{ 
+    position: relative;
+    width: 30px; 
+    height: 10px; 
+}
+
+    .score-form
+{
+  display: none;
+  position: absolute;
+  top:10px;
+  bottom: 400px;
+  right: 10px;
+  left: 1500px;
+  border: 1px solid #000000;
+}
+
+    .score-form-container 
+{
+  position: relative;
+  top: 10px; 
+  width: 200px; 
+  height: 200px; 
+  left:10px;
+  background-color: white;
+}
+
+    .point-holder
+{
+    display: none;
+    position: relative;
+    font-size: 30px;
+    left: 10px;
+}
+
+</style>
+
+<body>
+    <button type="button" name="Throw-button" id="button-1">Roll dice</button>
+    <button type="button" name="Show-score" id="button-2">Scoreboard</button>
+
+    <br><br>
+    <span id="span-space" hidden=true>Choose dices to be exchanged with next roll (if you want to exchange all then check all).</span>
+    <br><br>
+    <span id="span-counter"></span>
+    <br><br>
+    <button type="button" name="Check-button" id="button-3" hidden>Check all</button>
+    <button type="button" name="Uncheck-button" id="button-4" hidden>Uncheck all</button>
+    <br><br>
+
+    <div id="div-form" class="result-checkboxContainer"></div>
+        <form id="form-1" name="resultForm" hidden=true>
+            <input type="checkbox" name="dice1" id="checkbox-1" class="check" onchange="checkIfChecked()"/><span id="span-1"></span><br> 
+            <input type="checkbox" name="dice2" id="checkbox-2" class="check" onchange="checkIfChecked()"/><span id="span-2"></span><br>
+            <input type="checkbox" name="dice3" id="checkbox-3" class="check" onchange="checkIfChecked()"/><span id="span-3"></span><br>
+            <input type="checkbox" name="dice4" id="checkbox-4" class="check" onchange="checkIfChecked()"/><span id="span-4"></span><br>
+            <input type="checkbox" name="dice5" id="checkbox-5" class="check" onchange="checkIfChecked()"/><span id="span-5"></span><br>      
+        </form>
+    </div>
+
+    <div class="score-form" id="div-scoreForm">
+    <resultsForm action="/action_page.php" class="score-form-container">
+
+            <label for:"points" class="point-holder" id="point-1">Current points:</label>
+
+        <hr width="375">
+
+        <br><Label for="UpperSeciotn"><b>Number options</b></Label><br>
+
+            <input type="radio" name="option" id="radio-1" onchange="countPoints()">1<br> 
+            <input type="radio" name="option" id="radio-2" onchange="countPoints()">2<br>
+            <input type="radio" name="option" id="radio-3" onchange="countPoints()">3<br>
+            <input type="radio" name="option" id="radio-4" onchange="countPoints()">4<br>
+            <input type="radio" name="option" id="radio-5" onchange="countPoints()">5<br>
+            <input type="radio" name="option" id="radio-6" onchange="countPoints()">6<br>
+            
+
+        <br><Label for="LowerSection"><b>Combo options</b></label><br>
+            
+
+            <input type="radio" name="option" id="radio-7"/>Three Of A Kind<br> 
+            <input type="radio" name="option" id="radio-8"/>Four Of A Kind	<br>
+            <input type="radio" name="option" id="radio-9"/>Full<br>
+            <input type="radio" name="option" id="radio-10"/>Small Straight<br>
+            <input type="radio" name="option" id="radio-11"/>Large Straight<br>
+            <input type="radio" name="option" id="radio-12"/>Even<br>
+            <input type="radio" name="option" id="radio-13"/>Odd<br>
+            <input type="radio" name="option" id="radio-14"/>General<br>
+            <input type="radio" name="option" id="radio-15"/>Chance<br>
+
+        <br><button type="button" name="close" id="button-5">Close</button>
+            
+        
+        </resultsForm>
+    </div>
+
+    <script src="throw.js"></script>
+</body>
+
+
+</html>
