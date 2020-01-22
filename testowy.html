@@ -30,8 +30,6 @@
 {
   position: relative;
   top: 10px; 
-  width: 200px; 
-  height: 200px; 
   left:10px;
   background-color: white;
 }
@@ -39,9 +37,8 @@
     .point-holder
 {
     display: none;
-    position: relative;
+    position: static;
     font-size: 30px;
-    left: 10px;
 }
 
 </style>
@@ -78,28 +75,28 @@
 
         <br><Label for="UpperSeciotn"><b>Number options</b></Label><br>
 
-            <input type="radio" name="option" id="radio-1" onchange="countPoints()">1<br> 
-            <input type="radio" name="option" id="radio-2" onchange="countPoints()">2<br>
-            <input type="radio" name="option" id="radio-3" onchange="countPoints()">3<br>
-            <input type="radio" name="option" id="radio-4" onchange="countPoints()">4<br>
-            <input type="radio" name="option" id="radio-5" onchange="countPoints()">5<br>
-            <input type="radio" name="option" id="radio-6" onchange="countPoints()">6<br>
-            
-
+            <input type="radio" name="option" id="radio-1" onchange="handleChoiceSelection(id)">1<br> 
+            <input type="radio" name="option" id="radio-2" onchange="handleChoiceSelection(id)">2<br>
+            <input type="radio" name="option" id="radio-3" onchange="handleChoiceSelection(id)">3<br>
+            <input type="radio" name="option" id="radio-4" onchange="handleChoiceSelection(id)">4<br>
+            <input type="radio" name="option" id="radio-5" onchange="handleChoiceSelection(id)">5<br>
+            <input type="radio" name="option" id="radio-6" onchange="handleChoiceSelection(id)">6<br>
+  
         <br><Label for="LowerSection"><b>Combo options</b></label><br>
             
+            <input type="radio" name="option" id="radio-7" onchange="handleChoiceSelection(id)">Pair<br> 
+            <input type="radio" name="option" id="radio-8" onchange="handleChoiceSelection(id)">Double pair<br>
+            <input type="radio" name="option" id="radio-9" onchange="handleChoiceSelection(id)">Three Of A Kind<br> 
+            <input type="radio" name="option" id="radio-10" onchange="handleChoiceSelection(id)">Four Of A Kind	<br>
+            <input type="radio" name="option" id="radio-11" onchange="handleChoiceSelection(id)">Full<br>
+            <input type="radio" name="option" id="radio-12" onchange="handleChoiceSelection(id)">Small Straight<br>
+            <input type="radio" name="option" id="radio-13" onchange="handleChoiceSelection(id)">Large Straight<br>
+            <input type="radio" name="option" id="radio-14" onchange="handleChoiceSelection(id)">Even<br>
+            <input type="radio" name="option" id="radio-15" onchange="handleChoiceSelection(id)">Odd<br>
+            <input type="radio" name="option" id="radio-16" onchange="handleChoiceSelection(id)">General<br>
+            <input type="radio" name="option" id="radio-17" onchange="handleChoiceSelection(id)">Chance<br>
 
-            <input type="radio" name="option" id="radio-7"/>Three Of A Kind<br> 
-            <input type="radio" name="option" id="radio-8"/>Four Of A Kind	<br>
-            <input type="radio" name="option" id="radio-9"/>Full<br>
-            <input type="radio" name="option" id="radio-10"/>Small Straight<br>
-            <input type="radio" name="option" id="radio-11"/>Large Straight<br>
-            <input type="radio" name="option" id="radio-12"/>Even<br>
-            <input type="radio" name="option" id="radio-13"/>Odd<br>
-            <input type="radio" name="option" id="radio-14"/>General<br>
-            <input type="radio" name="option" id="radio-15"/>Chance<br>
-
-        <br><button type="button" name="close" id="button-5">Close</button>
+        <br><button type="button" name="close" id="button-5">Close</button><button type="button" name="submit" id="button-6">Submit</button>
             
         
         </resultsForm>
