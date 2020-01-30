@@ -2,6 +2,15 @@ var counter
 var result = []
 var selected = []
 
+var upperSectionMap = {
+    one: [-3,-2,-1,0,1,2],
+    two: [-6,-4,-2,0,2,4],
+    three:[-9,-6,-3,0,3,6],
+    four:[-12,-8,-4,0,4,8],
+    five:[-15,-10,-5,0,5,10],
+    six:[-18,-12,-6,0,6,12]
+}
+
 var gameChoices = {
     choice1: { id: 'radio-1', name: '1', result: null, isFirst:false, isPicked: false },
     choice2: { id: 'radio-2', name: '2', result: null, isFirst:false, isPicked: false },
@@ -22,15 +31,6 @@ var gameChoices = {
     choice17: { id: 'radio-17', name: 'Chance', result: null, isFirst:false, isPicked: false }
 }
 
-var upperSectionMap = {
-    zero: [-3,-6,-9,-12,-15,-18],
-    one: [-2,-4,-6,-8,-10,-12],
-    two: [-1,-2,-3,-4,-5,-6],
-    three:[0],
-    four:[1,2,3,4,5,6],
-    five:[2,4,6,8,10,12]
-}
-
 var handleChoiceSelection = (id) => {
     let testIfFirst = (counter-1 == 1) ? "True":"False";
     let picked = []
@@ -41,28 +41,26 @@ var handleChoiceSelection = (id) => {
             picked.push(singlePick.innerHTML)
         }
 
-    //let  resultFilter = new Map([...new Set(picked)].map(x => [x, picked.filter(y => y === x).length]))
+    gameChoices.choice1.result = upperSectionMap["one"][picked.filter(x => x === 1).length], gameChoices.choice1.isFirst = false
+    gameChoices.choice2.result = upperSectionMap["two"][picked.filter(x => x === 2).length], gameChoices.choice2.isFirst = false
+    gameChoices.choice3.result = upperSectionMap["three"][picked.filter(x => x === 3).length], gameChoices.choice3.isFirst = false
+    gameChoices.choice4.result = upperSectionMap["four"][picked.filter(x => x === 4).length], gameChoices.choice4.isFirst = false
+    gameChoices.choice5.result = upperSectionMap["five"][picked.filter(x => x === 5).length], gameChoices.choice5.isFirst = false
+    gameChoices.choice6.result = upperSectionMap["six"][picked.filter(x => x === 6).length], gameChoices.choice6.isFirst = false
+   // gameChoices.choice7.result = gameChoices.choice7.testIfFirst,
+    //gameChoices.choice8.result = gameChoices.choice8.testIfFirst,
+    //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
+    //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
+    //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
+    gameChoices.choice12.result = 15,  gameChoices.choice12.testIfFirst,
+    gameChoices.choice13.result = 20,  gameChoices.choice13.testIfFirst,
+    //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
+    //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
+    //gameChoices.choice16.result =  gameChoices.choice16.testIfFirst,
+    gameChoices.choice17.result = gameChoices.choice17.testIfFirst */
 
-    let pick = {
-        'radio-1': resultFilter.get(1),
-        'radio-2': resultFilter.get(2),
-        'radio-3': resultFilter.get(3),
-        'radio-4': resultFilter.get(4),
-        'radio-5': resultFilter.get(5),
-        'radio-6': resultFilter.get(6),
-        'radio-7': id, testIfFirst,
-        'radio-8': id, testIfFirst,
-        'radio-9': id, testIfFirst,
-        'radio-10': id, testIfFirst,
-        'radio-11': id, testIfFirst,
-        'radio-12': id, testIfFirst,
-        'radio-13': id, testIfFirst,
-        'radio-14': id, testIfFirst,
-        'radio-15': id, testIfFirst,
-        'radio-16': id, testIfFirst,
-        'radio-17': id, testIfFirst 
-    }
-    alert(pick["radio-1"])
+    console.log(picked)
+    console.log(gameChoices)
 };
 
 
