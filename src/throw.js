@@ -69,7 +69,7 @@ document.getElementById("button-3").addEventListener("click", function () { chec
 document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll); })
 document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults); })
 
-function rollDie() {
+const rollDie = () => {
     //Throw a dice logic (first roll)
     if (typeof counter === 'undefined') {
         for (let i = 1; i <= 5; i++) {

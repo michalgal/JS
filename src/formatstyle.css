@@ -1,0 +1,13 @@
+    .result-checkboxContainer {
+        position: relative;
+        width: 30px;
+        height: 10px;
+    }
+
+    .score-form {
+        display: none;
+        position: absolute;
+        top: 10px;
+        bottom: 400px;
+        left: 600px;
+    }
