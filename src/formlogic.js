@@ -58,12 +58,12 @@ function closeResults() {
     document.getElementById("button-2").disabled = false;
 }
 
-
 function lastRoll() {
     document.getElementById("button-1").hidden = true
     document.getElementById("span-space").hidden = true
     document.getElementById("div-scoreForm").style.display = "block"
     document.getElementById("button-2").disabled = true
-}
+    document.getElementById("button-5").disabled = true
+};
 
 

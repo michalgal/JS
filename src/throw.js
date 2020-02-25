@@ -1,20 +1,22 @@
+import { upperSectionMap, gameChoices } from '.result.js';
+
 var result = []
 
 var handleChoiceSelection = (id) => {
-    let testIfFirst = (counter - 1 == 1) ? "True" : "False";
-    let picked = []
-    selected = selectDices()
-    for (i = 0; i < selected.diceToExchange; i++) {
-        let singlePick = document.getElementById("span-" + (selected.dicePosition[i] + 1))
-        picked.push(singlePick.innerHTML)
+    let testIfFirst = (counter == 1) ? "True" : "False";
+    var picked = selectDices()
+    var selected = []
+    for (var i = 0; i < picked.diceToExchange; i++) {
+        let singlePick = document.getElementById("span-" + (picked.dicePosition[i] + 1))
+        selected.push(singlePick.innerHTML)
     }
-
-    gameChoices.choice1.result = upperSectionMap["one"][picked.filter(x => x === 1).length], gameChoices.choice1.isFirst = false
-    gameChoices.choice2.result = upperSectionMap["two"][picked.filter(x => x === 2).length], gameChoices.choice2.isFirst = false
-    gameChoices.choice3.result = upperSectionMap["three"][picked.filter(x => x === 3).length], gameChoices.choice3.isFirst = false
-    gameChoices.choice4.result = upperSectionMap["four"][picked.filter(x => x === 4).length], gameChoices.choice4.isFirst = false
-    gameChoices.choice5.result = upperSectionMap["five"][picked.filter(x => x === 5).length], gameChoices.choice5.isFirst = false
-    gameChoices.choice6.result = upperSectionMap["six"][picked.filter(x => x === 6).length], gameChoices.choice6.isFirst = false
+    console.log(selected)
+    gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false
+    gameChoices.choice2.result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices.choice2.isFirst = false
+    gameChoices.choice3.result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices.choice3.isFirst = false
+    gameChoices.choice4.result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices.choice4.isFirst = false
+    gameChoices.choice5.result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices.choice5.isFirst = false
+    gameChoices.choice6.result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices.choice6.isFirst = false
     // gameChoices.choice7.result = gameChoices.choice7.testIfFirst,
     //gameChoices.choice8.result = gameChoices.choice8.testIfFirst,
     //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
@@ -27,8 +29,7 @@ var handleChoiceSelection = (id) => {
         //gameChoices.choice16.result =  gameChoices.choice16.testIfFirst,
         gameChoices.choice17.result = gameChoices.choice17.testIfFirst
 
-    console.log(picked)
-    console.log(gameChoices)
+    //console.log(gameChoices)
 };
 
 const rollDie = () => {
