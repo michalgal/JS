@@ -8,26 +8,23 @@ var handleChoiceSelection = (id) => {
         let singlePick = document.getElementById("span-" + (picked.dicePosition[i] + 1))
         selected.push(parseInt(singlePick.innerHTML))
     }
-    console.log(selected)
-    gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false
-    gameChoices.choice2.result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices.choice2.isFirst = false
-    gameChoices.choice3.result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices.choice3.isFirst = false
-    gameChoices.choice4.result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices.choice4.isFirst = false
-    gameChoices.choice5.result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices.choice5.isFirst = false
-    gameChoices.choice6.result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices.choice6.isFirst = false
-    // gameChoices.choice7.result = gameChoices.choice7.testIfFirst,
-    //gameChoices.choice8.result = gameChoices.choice8.testIfFirst,
+    gameChoices[id].result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices[id].isFirst = false
+    gameChoices[id].result = countPair(selected), gameChoices[id].isFirst = testIfFirst
+    gameChoices[id].result = countDoublePair(selected), gameChoices[id].isFirst = testIfFirst
     //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
     //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
     //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
-    gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = testIfFirst
-    gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = testIfFirst
+    gameChoices[id].result = countSmall(selected), gameChoices[id].isFirst = testIfFirst
+    gameChoices[id].result = countLarge(selected), gameChoices[id].isFirst = testIfFirst
     //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
     //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
-    //gameChoices.choice16.result =  gameChoices.choice16.testIfFirst,
-    gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false
-
-    console.log(gameChoices)
+    gameChoices[id].result = countGeneral(selected), gameChoices[id].isFirst = testIfFirst
+    //gameChoices[id].result = selected.reduce((value, nextValue) => value + nextValue), gameChoices[id].isFirst = false
 };
 
 const rollDie = () => {
