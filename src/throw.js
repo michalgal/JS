@@ -8,23 +8,7 @@ var handleChoiceSelection = (id) => {
         let singlePick = document.getElementById("span-" + (picked.dicePosition[i] + 1))
         selected.push(parseInt(singlePick.innerHTML))
     }
-    gameChoices[id].result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices[id].isFirst = false
-    gameChoices[id].result = countPair(selected), gameChoices[id].isFirst = testIfFirst
-    gameChoices[id].result = countDoublePair(selected), gameChoices[id].isFirst = testIfFirst
-    //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
-    //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
-    //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
-    gameChoices[id].result = countSmall(selected), gameChoices[id].isFirst = testIfFirst
-    gameChoices[id].result = countLarge(selected), gameChoices[id].isFirst = testIfFirst
-    //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
-    //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
-    gameChoices[id].result = countGeneral(selected), gameChoices[id].isFirst = testIfFirst
-    //gameChoices[id].result = selected.reduce((value, nextValue) => value + nextValue), gameChoices[id].isFirst = false
+    appendRes(id, selected);
 };
 
 const rollDie = () => {

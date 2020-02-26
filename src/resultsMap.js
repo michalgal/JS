@@ -74,3 +74,23 @@ const countDoublePair = (selected) => {
         }
     }
 }
+
+function appendRes(id, selected) {
+    if (gameChoices.choice1.id == id) { gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false }
+    if (gameChoices.choice2.id == id) { gameChoices.choice2.result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices.choice2.isFirst = false }
+    if (gameChoices.choice3.id == id) { gameChoices.choice3.result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices.choice3.isFirst = false }
+    if (gameChoices.choice4.id == id) { gameChoices.choice4.result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices.choice4.isFirst = false }
+    if (gameChoices.choice5.id == id) { gameChoices.choice5.result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices.choice5.isFirst = false }
+    if (gameChoices.choice6.id == id) { gameChoices.choice6.result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices.choice6.isFirst = false }
+    if (gameChoices.choice7.id == id) { gameChoices.choice7.result = countPair(selected), gameChoices.choice7.isFirst = testIfFirst }
+    if (gameChoices.choice8.id == id) { gameChoices.choice8.result = countDoublePair(selected), gameChoices.choice8.isFirst = testIfFirst }
+    //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
+    //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
+    //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
+    if (gameChoices.choice1.id == id) { gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = testIfFirst }
+    if (gameChoices.choice1.id == id) { gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = testIfFirst }
+    //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
+    //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
+    if (gameChoices.choice1.id == id) { gameChoices.choice16.result = countGeneral(selected), gameChoices.choice16.isFirst = testIfFirst }
+    if (gameChoices.choice1.id == id) { gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false }
+}
