@@ -1,14 +1,14 @@
 var result = []
 
 var handleChoiceSelection = (id) => {
-    let testIfFirst = (counter == 1) ? "True" : "False";
+    var testIfFirst = (counter == 1) ? "True" : "False";
     var picked = selectDices()
     var selected = []
     for (var i = 0; i < picked.diceToExchange; i++) {
         let singlePick = document.getElementById("span-" + (picked.dicePosition[i] + 1))
         selected.push(parseInt(singlePick.innerHTML))
     }
-    appendRes(id, selected);
+    appendRes(id, selected, testIfFirst);
 };
 
 const rollDie = () => {

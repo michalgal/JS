@@ -75,22 +75,54 @@ const countDoublePair = (selected) => {
     }
 }
 
-function appendRes(id, selected) {
-    if (gameChoices.choice1.id == id) { gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false }
-    if (gameChoices.choice2.id == id) { gameChoices.choice2.result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices.choice2.isFirst = false }
-    if (gameChoices.choice3.id == id) { gameChoices.choice3.result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices.choice3.isFirst = false }
-    if (gameChoices.choice4.id == id) { gameChoices.choice4.result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices.choice4.isFirst = false }
-    if (gameChoices.choice5.id == id) { gameChoices.choice5.result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices.choice5.isFirst = false }
-    if (gameChoices.choice6.id == id) { gameChoices.choice6.result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices.choice6.isFirst = false }
-    if (gameChoices.choice7.id == id) { gameChoices.choice7.result = countPair(selected), gameChoices.choice7.isFirst = testIfFirst }
-    if (gameChoices.choice8.id == id) { gameChoices.choice8.result = countDoublePair(selected), gameChoices.choice8.isFirst = testIfFirst }
-    //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
-    //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
-    //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
-    if (gameChoices.choice1.id == id) { gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = testIfFirst }
-    if (gameChoices.choice1.id == id) { gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = testIfFirst }
+const countThree = (selected) => {
+    if (selected.filter(x => x === 1).length == 3) { return 3 }
+    if (selected.filter(x => x === 2).length == 3) { return 6 }
+    if (selected.filter(x => x === 3).length == 3) { return 9 }
+    if (selected.filter(x => x === 4).length == 3) { return 12 }
+    if (selected.filter(x => x === 5).length == 3) { return 15 }
+    if (selected.filter(x => x === 6).length == 3) { return 18 }
+    else { return 0 }
+}
+
+const countFour = (selected) => {
+    if (selected.filter(x => x === 1).length == 4) { return 4 }
+    if (selected.filter(x => x === 2).length == 4) { return 8 }
+    if (selected.filter(x => x === 3).length == 4) { return 12 }
+    if (selected.filter(x => x === 4).length == 4) { return 16 }
+    if (selected.filter(x => x === 5).length == 4) { return 20 }
+    if (selected.filter(x => x === 6).length == 4) { return 24 }
+    else { return 0 }
+}
+
+const countFull = (selected) => {
+    let sorted = selected.sort();
+    if (sorted[0] == sorted[1] == sorted[2] && sorted[3] == sorted[4] ||  sorted[0] == sorted[1] && sorted[2] == sorted[3] == sorted[4])
+    {
+        return sorted.reduce((currentValue, nextValue) => currentValue += nextValue)
+    }
+    else {
+        return 0
+    }
+}
+
+function appendRes(id, selected, isFirst) {
+    if (id == gameChoices.choice1.id) { gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false }
+    if (id == gameChoices.choice2.id) { gameChoices.choice2.result = upperSectionMap["two"][selected.filter(x => x === 2).length], gameChoices.choice2.isFirst = false }
+    if (id == gameChoices.choice3.id) { gameChoices.choice3.result = upperSectionMap["three"][selected.filter(x => x === 3).length], gameChoices.choice3.isFirst = false }
+    if (id == gameChoices.choice4.id) { gameChoices.choice4.result = upperSectionMap["four"][selected.filter(x => x === 4).length], gameChoices.choice4.isFirst = false }
+    if (id == gameChoices.choice5.id) { gameChoices.choice5.result = upperSectionMap["five"][selected.filter(x => x === 5).length], gameChoices.choice5.isFirst = false }
+    if (id == gameChoices.choice6.id) { gameChoices.choice6.result = upperSectionMap["six"][selected.filter(x => x === 6).length], gameChoices.choice6.isFirst = false }
+    if (id == gameChoices.choice7.id) { gameChoices.choice7.result = countPair(selected), gameChoices.choice7.isFirst = isFirst }
+    if (id == gameChoices.choice8.id) { gameChoices.choice8.result = countDoublePair(selected), gameChoices.choice8.isFirst = isFirst }
+    if (id == gameChoices.choice9.id) { gameChoices.choice9.result = countThree(selected), gameChoices.choice9.isFirst = isFirst }
+    if (id == gameChoices.choice10.id) { gameChoices.choice10.result = countFour(selected), gameChoices.choice10.isFirst = isFirst }
+    if (id == gameChoices.choice11.id) { gameChoices.choice11.result = countFull(selected), gameChoices.choice11.isFirst = isFirst }
+    if (id == gameChoices.choice12.id) { gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = isFirst }
+    if (id == gameChoices.choice13.id) { gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = isFirst }
     //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
     //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
-    if (gameChoices.choice1.id == id) { gameChoices.choice16.result = countGeneral(selected), gameChoices.choice16.isFirst = testIfFirst }
-    if (gameChoices.choice1.id == id) { gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false }
+    if (id == gameChoices.choice16.id) { gameChoices.choice16.result = countGeneral(selected), gameChoices.choice16.isFirst = isFirst }
+    if (id == gameChoices.choice17.id) { gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false }
+    console.log(gameChoices)
 }
