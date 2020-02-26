@@ -1,5 +1,3 @@
-import { upperSectionMap, gameChoices } from '.result.js';
-
 var result = []
 
 var handleChoiceSelection = (id) => {
@@ -8,7 +6,7 @@ var handleChoiceSelection = (id) => {
     var selected = []
     for (var i = 0; i < picked.diceToExchange; i++) {
         let singlePick = document.getElementById("span-" + (picked.dicePosition[i] + 1))
-        selected.push(singlePick.innerHTML)
+        selected.push(parseInt(singlePick.innerHTML))
     }
     console.log(selected)
     gameChoices.choice1.result = upperSectionMap["one"][selected.filter(x => x === 1).length], gameChoices.choice1.isFirst = false
@@ -22,14 +20,14 @@ var handleChoiceSelection = (id) => {
     //gameChoices.choice9.result = gameChoices.choice9.testIfFirst,
     //gameChoices.choice10.result =  gameChoices.choice10.testIfFirst,
     //gameChoices.choice11.result =  gameChoices.choice11.testIfFirst,
-    gameChoices.choice12.result = 15, gameChoices.choice12.testIfFirst,
-        gameChoices.choice13.result = 20, gameChoices.choice13.testIfFirst,
-        //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
-        //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
-        //gameChoices.choice16.result =  gameChoices.choice16.testIfFirst,
-        gameChoices.choice17.result = gameChoices.choice17.testIfFirst
+    gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = testIfFirst
+    gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = testIfFirst
+    //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
+    //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
+    //gameChoices.choice16.result =  gameChoices.choice16.testIfFirst,
+    gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false
 
-    //console.log(gameChoices)
+    console.log(gameChoices)
 };
 
 const rollDie = () => {

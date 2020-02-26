@@ -1,6 +1,6 @@
 var selected = []
 
-var upperSectionMap = {
+const upperSectionMap = {
     one: [-3, -2, -1, 0, 1, 2],
     two: [-6, -4, -2, 0, 2, 4],
     three: [-9, -6, -3, 0, 3, 6],
@@ -8,6 +8,11 @@ var upperSectionMap = {
     five: [-15, -10, -5, 0, 5, 10],
     six: [-18, -12, -6, 0, 6, 12]
 }
+
+const smallStraight = [1, 2, 3, 4, 5]
+var countSmall = (selected) => { if (selected.reduce((value, nextValue) => smallStraight.includes(nextValue)) == true) { return 15 } else { return 0 } }
+const largeStraight = [2, 3, 4, 5, 6]
+var countLarge = (selected) => { if (selected.reduce((value, nextValue) => largeStraight.includes(nextValue)) == true) { return 20 } else { return 0 } }
 
 var gameChoices = {
     choice1: { id: 'radio-1', name: '1', result: null, isFirst: false, isPicked: false },
