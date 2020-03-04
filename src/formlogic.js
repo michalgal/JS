@@ -8,10 +8,16 @@ document.getElementById("button-5").addEventListener("click", function () { clos
 document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
 
 function addPlayers() {
-    let player = prompt("Enter player name")
-    players.push(player)
-    if (window.confirm("Do you want to add another player?")) {
-        addPlayers();
+    var player = prompt("Enter player name")
+    if (player == null) {
+        document.getElementById("button-1").disabled = true
+        document.getElementById("button-2").disabled = true
+    }
+    else {
+        players.push(player)
+        if (window.confirm("Do you want to add another player?")) {
+            addPlayers();
+        }
     }
 }
 
