@@ -92,12 +92,34 @@ const countFour = (selected) => {
 
 const countFull = (selected) => {
     let sorted = selected.sort();
-    if (sorted[0] == sorted[1] == sorted[2] && sorted[3] == sorted[4] || sorted[0] == sorted[1] && sorted[2] == sorted[3] == sorted[4]) {
+    if ((sorted[0] == sorted[1] && sorted[0] == sorted[2] && sorted[3] == sorted[4]) ||
+        (sorted[0] == sorted[1] && sorted[2] == sorted[3] && sorted[2] == sorted[4])
+    ) {
         return sorted.reduce((currentValue, nextValue) => currentValue += nextValue)
     }
     else {
         return 0
     }
+}
+
+const countEven = (selected) => {
+    for (let i = 0; i < selected.length; i++) {
+        if (selected[i] % 2 == 1) {
+            return 0
+        }
+    }
+    even = selected.reduce((initialValue, nextValue) => initialValue += nextValue)
+    return even
+}
+
+const countOdd = (selected) => {
+    for (let i = 0; i < selected.length; i++) {
+        if (selected[i] % 2 == 0) {
+            return 0
+        }
+    }
+    odd = selected.reduce((initialValue, nextValue) => initialValue += nextValue)
+    return odd
 }
 
 function appendRes(id, selected, isFirst) {
@@ -114,8 +136,8 @@ function appendRes(id, selected, isFirst) {
     if (id == gameChoices.choice11.id) { gameChoices.choice11.result = countFull(selected), gameChoices.choice11.isFirst = isFirst }
     if (id == gameChoices.choice12.id) { gameChoices.choice12.result = countSmall(selected), gameChoices.choice12.isFirst = isFirst }
     if (id == gameChoices.choice13.id) { gameChoices.choice13.result = countLarge(selected), gameChoices.choice13.isFirst = isFirst }
-    //gameChoices.choice14.result =  gameChoices.choice14.testIfFirst,
-    //gameChoices.choice15.result =  gameChoices.choice15.testIfFirst,
+    if (id == gameChoices.choice14.id) { gameChoices.choice14.result = countEven(selected), gameChoices.choice14.testIfFirst = isFirst }
+    if (id == gameChoices.choice15.id) { gameChoices.choice15.result = countOdd(selected), gameChoices.choice15.testIfFirst = isFirst }
     if (id == gameChoices.choice16.id) { gameChoices.choice16.result = countGeneral(selected), gameChoices.choice16.isFirst = isFirst }
     if (id == gameChoices.choice17.id) { gameChoices.choice17.result = selected.reduce((value, nextValue) => value + nextValue), gameChoices.choice17.isFirst = false }
     console.log(gameChoices)
