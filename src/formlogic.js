@@ -1,8 +1,19 @@
-document.getElementById("button-1").addEventListener("click", function () { rollDie(rollDie); })
-document.getElementById("button-2").addEventListener("click", function () { openResults(openResults); })
-document.getElementById("button-3").addEventListener("click", function () { checkAll(checkAll); })
-document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll); })
-document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults); })
+var players = []
+
+document.getElementById("button-1").addEventListener("click", function () { rollDie(rollDie) })
+document.getElementById("button-2").addEventListener("click", function () { openResults(openResults) })
+document.getElementById("button-3").addEventListener("click", function () { checkAll(checkAll) })
+document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll) })
+document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults) })
+document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
+
+function addPlayers() {
+    let player = prompt("Enter player name")
+    players.push(player)
+    if (window.confirm("Do you want to add another player?")) {
+        addPlayers();
+    }
+}
 
 function checkIfChecked() {
     let boolTest = document.getElementsByClassName("check")
