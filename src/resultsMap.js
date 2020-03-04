@@ -45,34 +45,29 @@ const countGeneral = (selected) => {
 }
 
 const countPair = (selected) => {
-    if (selected.length !== 2) {
-        alert('Please check two dices for Pair')
-        return null
-    }
-    else {
-        if (selected[0] !== selected[1]) {
-            return 0
-        }
-        else {
-            return (selected[0] + selected[1])
+
+    let sorted = selected.sort()
+    for (let i = sorted.length; i !== 0; i--) {
+        if (sorted[i] == sorted[i - 1]) {
+            return (sorted[i] + sorted[i - 1])
         }
     }
+    return 0
 }
 
 const countDoublePair = (selected) => {
-    var sorted = selected.sort()
-    if (sorted.length !== 4) {
-        alert('Please check four dices for Double Pair')
-        return null
-    }
-    else {
-        if (sorted[0] !== sorted[1] || sorted[2] !== sorted[3]) {
-            return 0
-        }
-        else {
-            return (sorted[0] + sorted[1] + sorted[2] + sorted[3])
+    let sorted = selected.sort()
+
+    for (let i = sorted.length; i !== 0; i--) {
+        if (sorted[i] == sorted[i - 1]) {
+            if (sorted[i - 2] == sorted[i - 3])
+                return (sorted[i] + sorted[i - 1] + sorted[i - 2] + sorted[i - 3])
+            else if (sorted[i - 3] == sorted[i - 4]) {
+                return (sorted[i] + sorted[i - 1] + sorted[i - 3] + sorted[i - 4])
+            }
         }
     }
+    return 0
 }
 
 const countThree = (selected) => {
@@ -97,8 +92,7 @@ const countFour = (selected) => {
 
 const countFull = (selected) => {
     let sorted = selected.sort();
-    if (sorted[0] == sorted[1] == sorted[2] && sorted[3] == sorted[4] ||  sorted[0] == sorted[1] && sorted[2] == sorted[3] == sorted[4])
-    {
+    if (sorted[0] == sorted[1] == sorted[2] && sorted[3] == sorted[4] || sorted[0] == sorted[1] && sorted[2] == sorted[3] == sorted[4]) {
         return sorted.reduce((currentValue, nextValue) => currentValue += nextValue)
     }
     else {
