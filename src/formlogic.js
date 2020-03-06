@@ -1,11 +1,12 @@
 var players = []
+var playersCounter = 0
 
 document.getElementById("button-1").addEventListener("click", function () { rollDie(rollDie) })
 document.getElementById("button-2").addEventListener("click", function () { openResults(openResults) })
 document.getElementById("button-3").addEventListener("click", function () { checkAll(checkAll) })
 document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll) })
 document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults) })
-document.getElementById("button-6").addEventListener("click", function () { nextTurn(nextTurn) })
+document.getElementById("button-6").addEventListener("click", function () { nextTurn(players) })
 document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
 
 function addPlayers() {
@@ -13,6 +14,7 @@ function addPlayers() {
     if (player == null) {
         document.getElementById("button-1").disabled = true
         document.getElementById("button-2").disabled = true
+        return null
     }
     else {
         players.push(player)
@@ -25,8 +27,11 @@ function addPlayers() {
 
 function nextTurn(players) {
 
-    let currentPlayer = document.getElementById("player").innerHTML
-    let nextPlayer = players.reduce((currentPlayer, nextPlayer) => currentPlayer[next])
+    let nextPlayer = players[playersCounter+=1]
+    if (playersCounter == players.length -1)
+    {
+        playersCounter = -1
+    }
     document.getElementById("player").innerHTML = nextPlayer + "'s turn";
 }
 
