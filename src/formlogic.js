@@ -5,6 +5,7 @@ document.getElementById("button-2").addEventListener("click", function () { open
 document.getElementById("button-3").addEventListener("click", function () { checkAll(checkAll) })
 document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll) })
 document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults) })
+document.getElementById("button-6").addEventListener("click", function () { nextTurn(nextTurn) })
 document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
 
 function addPlayers() {
@@ -19,6 +20,14 @@ function addPlayers() {
             addPlayers();
         }
     }
+    document.getElementById("player").innerHTML = players[0] + "'s turn"
+};
+
+function nextTurn(players) {
+
+    let currentPlayer = document.getElementById("player").innerHTML
+    let nextPlayer = players.reduce((currentPlayer, nextPlayer) => currentPlayer[next])
+    document.getElementById("player").innerHTML = nextPlayer + "'s turn";
 }
 
 function checkIfChecked() {
