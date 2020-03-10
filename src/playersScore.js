@@ -18,7 +18,7 @@ function addPlayers() {
             addPlayers();
         }
     }
-    document.getElementById("player").innerHTML = players[0] + "'s turn"
+    document.getElementById("plasyer").innerHTML = players[0] + "'s turn"
 };
 
 function scoreBoardInstance(playerName, options) {
