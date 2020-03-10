@@ -1,31 +1,31 @@
 var selected = []
 
-var gameChoices = {
-    player: null,
-    choices: {
-        choice1: { id: 'radio-1', name: '1', result: null, isFirst: false, isPicked: false },
-        choice2: { id: 'radio-2', name: '2', result: null, isFirst: false, isPicked: false },
-        choice3: { id: 'radio-3', name: '3', result: null, isFirst: false, isPicked: false },
-        choice4: { id: 'radio-4', name: '4', result: null, isFirst: false, isPicked: false },
-        choice5: { id: 'radio-5', name: '5', result: null, isFirst: false, isPicked: false },
-        choice6: { id: 'radio-6', name: '6', result: null, isFirst: false, isPicked: false },
-        choice7: { id: 'radio-7', name: 'Pair', result: false, isFirst: null, isPicked: false },
-        choice8: { id: 'radio-8', name: 'Double pair', result: false, isFirst: null, isPicked: false },
-        choice9: { id: 'radio-9', name: 'Three of a kind', result: false, isFirst: null, isPicked: false },
-        choice10: { id: 'radio-10', name: 'Four Of A Kind', result: false, isFirst: null, isPicked: false },
-        choice11: { id: 'radio-11', name: 'Full', result: null, isFirst: false, isPicked: false },
-        choice12: { id: 'radio-12', name: 'Small Straight', result: null, isFirst: false, isPicked: false },
-        choice13: { id: 'radio-13', name: 'Large Straight', result: null, isFirst: false, isPicked: false },
-        choice14: { id: 'radio-14', name: 'Even', result: null, isFirst: false, isPicked: false },
-        choice15: { id: 'radio-15', name: 'Odd', result: null, isFirst: false, isPicked: false },
-        choice16: { id: 'radio-16', name: 'General', result: null, isFirst: false, isPicked: false },
-        choice17: { id: 'radio-17', name: 'Chance', result: null, isFirst: false, isPicked: false }
-    }
+var scoreBoard = new scoreBoardInstance(player, gameChoices)
+console.log(scoreBoard)
+
+function scoreBoardInstance(player, options) {
+    this.player = player;
+    this.options = options;
 }
 
-function createGameChoices(player, choices) {
-    this.player = player;
-    this.choices = {}
+var gameChoices = {
+    choice1: { id: 'radio-1', name: '1', result: null, isFirst: false, isPicked: false },
+    choice2: { id: 'radio-2', name: '2', result: null, isFirst: false, isPicked: false },
+    choice3: { id: 'radio-3', name: '3', result: null, isFirst: false, isPicked: false },
+    choice4: { id: 'radio-4', name: '4', result: null, isFirst: false, isPicked: false },
+    choice5: { id: 'radio-5', name: '5', result: null, isFirst: false, isPicked: false },
+    choice6: { id: 'radio-6', name: '6', result: null, isFirst: false, isPicked: false },
+    choice7: { id: 'radio-7', name: 'Pair', result: false, isFirst: null, isPicked: false },
+    choice8: { id: 'radio-8', name: 'Double pair', result: false, isFirst: null, isPicked: false },
+    choice9: { id: 'radio-9', name: 'Three of a kind', result: false, isFirst: null, isPicked: false },
+    choice10: { id: 'radio-10', name: 'Four Of A Kind', result: false, isFirst: null, isPicked: false },
+    choice11: { id: 'radio-11', name: 'Full', result: null, isFirst: false, isPicked: false },
+    choice12: { id: 'radio-12', name: 'Small Straight', result: null, isFirst: false, isPicked: false },
+    choice13: { id: 'radio-13', name: 'Large Straight', result: null, isFirst: false, isPicked: false },
+    choice14: { id: 'radio-14', name: 'Even', result: null, isFirst: false, isPicked: false },
+    choice15: { id: 'radio-15', name: 'Odd', result: null, isFirst: false, isPicked: false },
+    choice16: { id: 'radio-16', name: 'General', result: null, isFirst: false, isPicked: false },
+    choice17: { id: 'radio-17', name: 'Chance', result: null, isFirst: false, isPicked: false }
 }
 
 const upperSectionMap = {

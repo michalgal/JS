@@ -1,6 +1,3 @@
-import { createGameChoices, gameChoices } from './resultsMap'
-
-var players = []
 var playersCounter = 0
 
 document.getElementById("button-1").addEventListener("click", function () { rollDie(rollDie) })
@@ -9,24 +6,6 @@ document.getElementById("button-3").addEventListener("click", function () { chec
 document.getElementById("button-4").addEventListener("click", function () { uncheckAll(uncheckAll) })
 document.getElementById("button-5").addEventListener("click", function () { closeResults(closeResults) })
 document.getElementById("button-6").addEventListener("click", function () { nextTurn(players) })
-document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
-
-function addPlayers() {
-    var player = prompt("Enter player name")
-    if (player == null) {
-        document.getElementById("button-1").disabled = true
-        document.getElementById("button-2").disabled = true
-        return null
-    }
-    else {
-        players.push(player)
-        var scoreBoard = createGameChoices(player, gameChoices.choices)
-        if (window.confirm("Do you want to add another player?")) {
-            addPlayers();
-        }
-    }
-    document.getElementById("player").innerHTML = players[0] + "'s turn"
-};
 
 function nextTurn(players) {
 
