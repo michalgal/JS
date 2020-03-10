@@ -1,3 +1,5 @@
+import { createGameChoices, gameChoices } from './resultsMap'
+
 var players = []
 var playersCounter = 0
 
@@ -18,6 +20,7 @@ function addPlayers() {
     }
     else {
         players.push(player)
+        var scoreBoard = createGameChoices(player, gameChoices.choices)
         if (window.confirm("Do you want to add another player?")) {
             addPlayers();
         }
@@ -27,9 +30,8 @@ function addPlayers() {
 
 function nextTurn(players) {
 
-    let nextPlayer = players[playersCounter+=1]
-    if (playersCounter == players.length -1)
-    {
+    let nextPlayer = players[playersCounter += 1]
+    if (playersCounter == players.length - 1) {
         playersCounter = -1
     }
     document.getElementById("player").innerHTML = nextPlayer + "'s turn";
@@ -96,5 +98,3 @@ function lastRoll() {
     document.getElementById("button-2").disabled = true
     document.getElementById("button-5").disabled = true
 };
-
-
