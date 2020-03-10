@@ -12,7 +12,6 @@ var handleChoiceSelection = (id) => {
 };
 
 const rollDie = () => {
-
     // count roll number with countRoll function
     var counter = countRoll();
     //Throw a dice logic (first roll)
@@ -46,6 +45,7 @@ function countRoll() {
         counter++
         document.getElementById("span-counter").innerHTML = "Roll number: " + counter;
         if (counter == 3) {
+            counter = 'undefined'
             lastRoll();
         }
     }

@@ -14,6 +14,7 @@ function nextTurn(players) {
         playersCounter = -1
     }
     document.getElementById("player").innerHTML = nextPlayer + "'s turn";
+    startScreenState();
 }
 
 function checkIfChecked() {
@@ -77,3 +78,15 @@ function lastRoll() {
     document.getElementById("button-2").disabled = true
     document.getElementById("button-5").disabled = true
 };
+
+function startScreenState() {
+    uncheckAll();
+    document.getElementById("form-1").hidden = true
+    document.getElementById("span-counter").hidden = true
+    document.getElementById("button-1").disabled = false
+    document.getElementById("span-space").hidden = true
+    document.getElementById("div-scoreForm").style.display = "none"
+    document.getElementById("button-2").disabled = false
+    document.getElementById("button-3").hidden = true
+    document.getElementById("button-4").hidden = true
+}
