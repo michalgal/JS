@@ -1,13 +1,5 @@
 var selected = []
 
-var scoreBoard = new scoreBoardInstance(player, gameChoices)
-console.log(scoreBoard)
-
-function scoreBoardInstance(player, options) {
-    this.player = player;
-    this.options = options;
-}
-
 var gameChoices = {
     choice1: { id: 'radio-1', name: '1', result: null, isFirst: false, isPicked: false },
     choice2: { id: 'radio-2', name: '2', result: null, isFirst: false, isPicked: false },

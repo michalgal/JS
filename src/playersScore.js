@@ -4,7 +4,7 @@ var players = []
 var scoreBoards = []
 
 function addPlayers() {
-    var player = prompt("Entesr player name")
+    var player = prompt("Enter player name")
     if (player == null) {
         document.getElementById("button-1").disabled = true
         document.getElementById("button-2").disabled = true
@@ -21,7 +21,7 @@ function addPlayers() {
     document.getElementById("player").innerHTML = players[0] + "'s turn"
 };
 
-function scoreBoardInstance(player, options) {
-    this.player = player;
+function scoreBoardInstance(playerName, options) {
+    this.playerName = playerName;
     this.options = options;
-}
+};
