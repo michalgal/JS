@@ -9,12 +9,17 @@ document.getElementById("button-6").addEventListener("click", function () { next
 
 function nextTurn(players) {
 
-    let nextPlayer = players[playersCounter += 1]
-    if (playersCounter == players.length - 1) {
-        playersCounter = -1
-    }
-    document.getElementById("player").innerHTML = nextPlayer + "'s turn";
-    startScreenState();
+    if (players.length != 1 && playersCounter != players.length-1)
+        {
+                playersCounter = playersCounter + 1;
+                document.getElementById("player").innerHTML = players[playersCounter] + "'s turn";
+                startScreenState();
+            }
+            else {
+                playersCounter = 0;
+                document.getElementById("player").innerHTML = players[playersCounter] + "'s turn";
+                startScreenState();
+            }
 }
 
 function checkIfChecked() {
@@ -58,12 +63,6 @@ function unhideButtons() {
 function openResults() {
     document.getElementById("div-scoreForm").style.display = "block"
     document.getElementById("button-2").disabled = true
-    if (typeof counter === 'undefined') {
-        document.getElementById("button-6").disabled = true
-    }
-    else {
-        document.getElementById("button-6").disabled = false;
-    }
 }
 
 function closeResults() {

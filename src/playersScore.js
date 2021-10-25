@@ -1,3 +1,5 @@
+// 's turn, when else = cancel no submit button option
+
 document.addEventListener('DOMContentLoaded', function () { addPlayers(addPlayers) })
 
 var players = []

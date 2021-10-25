@@ -1,3 +1,5 @@
+///TO DO counter logic
+
 var result = []
 
 var handleChoiceSelection = (id) => {
