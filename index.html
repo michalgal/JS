@@ -9,10 +9,17 @@
 <link rel='stylesheet' type='text/css' href='src/formatstyle.css'>
 
 <body>
-    <button type="button" name="Throw-button" id="button-1">Roll dice</button>
-    <button type="button" name="Show-score" id="button-2">Scoreboard</button>
-    <label id='player'></label>
+    <div id="start">
+    <button type="button" name="Add-player" id="button-10" onclick="new Player()">Add player</button>
+    <button type="button" name="Add-player" id="button-11" onclick=console.log(players)>Show players</button>
+    </div>
 
+    <div></div>
+    <div id="play">
+    <button type="button" name="Throw-button" id="button-1" hidden>Roll dice</button>
+    <button type="button" name="Show-score" id="button-2" hidden>Scoreboard</button>
+    <label id='player'></label>
+    </div>
 
     <br>
     <br>
@@ -103,7 +110,7 @@
 
     </div>
 
-    <script src="src/playersScore.js"></script>
+    <script src="src/players.js"></script>
     <script src="src/throw.js"></script>
     <script src="src/formlogic.js"></script>
     <script src="src/resultsMap.js"></script>
